@@ -1,0 +1,14 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: spark-in-jupyter
+    # command: tail -f /dev/null
+    command: jupyter-lab --ip=0.0.0.0 --port=9000 --NotebookApp.token='' --NotebookApp.password='' --allow-root
+    volumes:
+      - .:/code
+    ports:
+      - "9000:9000"
+    restart: unless-stopped
+
