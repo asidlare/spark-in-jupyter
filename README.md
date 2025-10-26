@@ -3,6 +3,18 @@ Virtual env for testing spark solutions
 
 `notebooks` dir is reserved for jupyter notebooks and data
 
+## What is needed?
+
+Locally installed Docker and git.
+Docker has to be launched.
+
+## Clone repository
+
+```bash
+git clone git@github.com:asidlare/spark-in-jupyter.git
+cd spark-in-jupyter
+```
+
 ## Application in a container
 
 ### Launching the container
