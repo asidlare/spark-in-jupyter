@@ -1,4 +1,11 @@
 services:
+  db:
+    image: postgres:17-alpine
+    container_name: spark-in-jupyter-db
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    env_file:
+      - ./env_file.txt
   backend:
     build:
       context: .
@@ -10,5 +17,9 @@ services:
       - .:/code
     ports:
       - "9000:9000"
+    env_file:
+      - ./env_file.txt
+    depends_on:
+      - db
     restart: unless-stopped
 

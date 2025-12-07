@@ -24,6 +24,28 @@ $ docker compose build
 $ docker compose up
 ```
 
+### Logging into database
+
+```bash
+➜  spark-in-jupyter git:(master) ✗ docker exec -it spark-in-jupyter-db psql -U postgres
+psql (17.7)
+Type "help" for help.
+
+postgres=# select * from abcd;
+ id | val
+----+-----
+ 75 | a
+ 76 | a
+ 77 | a
+ 78 | a
+ 79 | a
+ 80 | a
+ 81 | a
+ 82 | a
+ 83 | a
+--More--
+```
+
 ### Testing spark solutions
 
 `jupyter-lab` is launched at port 9000 to avoid interactions with standard configuration
