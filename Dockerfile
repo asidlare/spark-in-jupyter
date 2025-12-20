@@ -21,6 +21,6 @@ RUN pip install --upgrade setuptools wheel
 RUN pip install --no-cache-dir --prefer-binary -r requirements.txt
 
 # Expose the port your application will run on
-EXPOSE 9000
+EXPOSE 9000 4040
 
 # CMD tail -f /dev/null

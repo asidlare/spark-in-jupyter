@@ -26,6 +26,8 @@ $ docker compose up
 
 ### Logging into database
 
+Notebook: notebooks/DB.ipynb
+
 ```bash
 ➜  spark-in-jupyter git:(master) ✗ docker exec -it spark-in-jupyter-db psql -U postgres
 psql (17.7)
@@ -46,8 +48,23 @@ postgres=# select * from abcd;
 --More--
 ```
 
+### Testing kafka solutions
+
+Notebook: notebooks/KAFKA.ipynb
+
+#### Adding topics for test purposes
+
+Before running notebook, topics have to be created.
+
+```bash
+docker exec -it kafka kafka-topics --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic topic1
+docker exec -it kafka kafka-topics --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic topic2
+```
+
 ### Testing spark solutions
 
 `jupyter-lab` is launched at port 9000 to avoid interactions with standard configuration
 
-After starting container jupyter-lab can be opened in a browser using url: http://127.0.0.1:9000/lab
+After starting container:
+* jupyter-lab can be opened in a browser using url: http://127.0.0.1:9000/lab
+* spark-ui (if launched) can be opened in a browser using url: http://127.0.0.1:4040 (notebooks/UI.ipynb for more info)
